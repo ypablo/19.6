@@ -12,6 +12,7 @@ class Stopwatch {
             seconds: 0,
             miliseconds: 0
         };
+		this.print();
     }
 	
 	print() {
@@ -52,6 +53,14 @@ class Stopwatch {
 	}
 }
 
+function pad0(value) {
+    let result = value.toString();
+    if (result.length < 2) {
+        result = '0' + result;
+    }
+    return result;
+}
+
 const stopwatch = new Stopwatch(
 document.querySelector('.stopwatch'));
 
@@ -61,10 +70,7 @@ startButton.addEventListener('click', () => stopwatch.start());
 let stopButton = document.getElementById('stop');
 stopButton.addEventListener('click', () => stopwatch.stop());
 
-function pad0(value) {
-    let result = value.toString();
-    if (result.length < 2) {
-        result = '0' + result;
-    }
-    return result;
-}
+let resetButton = document.getElementById('reset');
+resetButton.addEventListener('click', () => stopwatch.reset());
+
+	
